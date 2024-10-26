@@ -8,6 +8,20 @@
 2) Install the Active Directory Windows Feature
 
 
-Shell Command
+# Shell Commands
 
-- Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+1) Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+
+2) Configure ADD Controller
+    - import-Module ADDSDeployment
+    - install-ADDSForest
+    - Input 
+        - DomainName: skogs.com
+        - Password: ***********
+
+# Change static IP
+
+**Commands**
+- Get-NetIPAddress -IPAddress '0.0.0.0' (Returns index of interface hosting the given IP)
+- Get-NetIPInterface -InterfaceIndex # | Set-NetIPInterface -Dhcp D (Disable DHCP)
+
